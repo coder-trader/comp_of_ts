@@ -1,0 +1,359 @@
+/*
+ * @theme funnel-magic
+ * @author Claude
+ * @size 16:9
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+/* Base theme variables */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #ff6a00 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #43e97b 100%);
+  --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #f5576c 100%);
+  --success-gradient: linear-gradient(135deg, #43e97b 0%, #fee140 100%);
+  --warning-gradient: linear-gradient(135deg, #fa709a 0%, #ff6a00 100%);
+  --code-gradient: linear-gradient(90deg, #232526 0%, #414345 100%);
+  --code-border: 2px solid #ff6a00;
+  --code-shadow: 0 4px 24px 0 rgba(255,106,0,0.15);
+  --code-accent: #ff6a00;
+  
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --text-light: #ffffff;
+  --bg-light: #ffffff;
+  --shadow-soft: 0 10px 40px rgba(0,0,0,0.1);
+  --shadow-strong: 0 20px 60px rgba(0,0,0,0.2);
+  --border-radius: 20px;
+  --border-radius-small: 12px;
+}
+
+/* Section styling */
+section {
+  background: var(--bg-light);
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-primary);
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  line-height: 1.4;
+  font-size: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background elements */
+section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(102,126,234,0.1) 0%, transparent 70%);
+  animation: float 20s ease-in-out infinite;
+  z-index: -1;
+}
+
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Headings */
+h1 {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.5em;
+  font-weight: 800;
+  margin-bottom: 0.3em;
+  text-align: center;
+  position: relative;
+  line-height: 1.1;
+}
+
+
+h2 {
+  background: var(--secondary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.8em;
+  font-weight: 700;
+  margin-bottom: 0.4em;
+  position: relative;
+}
+
+
+h3 {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom: 0.6em;
+}
+
+
+/* Paragraphs and text */
+p {
+  margin-bottom: 0.8em;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Strong text with emoji enhancement */
+strong {
+  background: var(--warning-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  position: relative;
+}
+
+/* Lists */
+ul, ol {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+li {
+  margin: 0.3em 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+
+li::before {
+  content: '• ';
+  font-size: 1em;
+  margin-right: 8px;
+}
+
+/* Blockquotes */
+blockquote {
+  background: var(--primary-gradient);
+  color: var(--text-light);
+  padding: 40px;
+  border-radius: var(--border-radius);
+  margin: 2em 0;
+  font-size: 1.3em;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: var(--shadow-strong);
+  position: relative;
+}
+
+
+/* Code blocks */
+pre {
+
+  background: var(--code-gradient);
+  color: #ffe7c2;
+  padding: 32px 36px 32px 36px;
+  border-radius: 18px;
+  margin: 2em 0;
+  box-shadow: var(--code-shadow);
+  border: var(--code-border);
+  position: relative;
+  overflow-x: auto;
+  font-size: 1.1em;
+  font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace;
+  transition: box-shadow 0.3s, border 0.3s;
+  background-clip: padding-box;
+  background-image: repeating-linear-gradient(135deg,rgba(255,106,0,0.08) 0 10px,transparent 10px 20px);
+}
+
+
+code {
+  font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 1em;
+  color: #ffe7c2;
+  background: none;
+  border: none;
+  letter-spacing: 0.01em;
+}
+
+/* Inline code */
+:not(pre) > code {
+  background: var(--warning-gradient);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.95em;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(255,106,0,0.10);
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 2em 0;
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+th {
+  background: var(--primary-gradient);
+  color: var(--text-light);
+  padding: 20px;
+  font-weight: 700;
+  text-align: left;
+  position: relative;
+}
+
+
+td {
+  background: var(--bg-light);
+  padding: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+tr:nth-child(even) td {
+  background: #f7fafc;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-soft);
+  margin: 1em 0;
+}
+
+/* Links */
+a {
+  background: var(--secondary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+
+
+/* Special slide types */
+
+/* Title slide */
+section.title {
+  text-align: center;
+  background: var(--primary-gradient);
+  color: var(--text-light);
+}
+
+section.title h1 {
+  -webkit-text-fill-color: var(--text-light);
+  font-size: 4em;
+  margin-bottom: 0.3em;
+}
+
+section.title p {
+  font-size: 1.5em;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+/* CTA slide */
+section.cta {
+  background: var(--secondary-gradient);
+  color: var(--text-light);
+  text-align: center;
+}
+
+section.cta h1,
+section.cta h2,
+section.cta h3 {
+  -webkit-text-fill-color: var(--text-light);
+  color: var(--text-light);
+}
+
+/* Success slide */
+section.success {
+  background: var(--success-gradient);
+  color: var(--text-light);
+}
+
+section.success h1,
+section.success h2,
+section.success h3 {
+  -webkit-text-fill-color: var(--text-light);
+  color: var(--text-light);
+}
+
+/* Warning/attention slide */
+section.warning {
+  background: var(--warning-gradient);
+  color: var(--text-light);
+}
+
+section.warning h1,
+section.warning h2,
+section.warning h3 {
+  -webkit-text-fill-color: var(--text-light);
+  color: var(--text-light);
+}
+
+/* Footer */
+section footer {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  font-size: 0.8em;
+  opacity: 0.7;
+  font-weight: 400;
+}
+
+/* Page number styling */
+section::after {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+/* Utility classes for extra flair */
+.highlight {
+  background: var(--warning-gradient);
+  color: var(--text-light);
+  padding: 10px 20px;
+  border-radius: var(--border-radius-small);
+  display: inline-block;
+  font-weight: 600;
+  box-shadow: var(--shadow-soft);
+}
+
+.emoji-large {
+  font-size: 3em;
+  display: block;
+  text-align: center;
+  margin: 0.5em 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.gradient-text {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
