@@ -156,33 +156,54 @@ blockquote {
 }
 
 
-/* Code blocks */
-pre {
-
-  background: var(--code-gradient);
-  color: #ffe7c2;
-  padding: 32px 36px 32px 36px;
-  border-radius: 18px;
-  margin: 2em 0;
-  box-shadow: var(--code-shadow);
-  border: var(--code-border);
+/* Code blocks - Higher specificity to override Marp defaults */
+section pre,
+:is(pre, marp-pre) {
+  background: #e0bb8ad2 !important;
+  color: #8f8b8b !important;
+  padding: 24px !important;
+  border-radius: 8px !important;
+  margin: 1.3em 0 !important;
+  border: 1px solid #404040 !important;
   position: relative;
   overflow-x: auto;
-  font-size: 1.1em;
-  font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace;
-  transition: box-shadow 0.3s, border 0.3s;
-  background-clip: padding-box;
-  background-image: repeating-linear-gradient(135deg,rgba(255,106,0,0.08) 0 10px,transparent 10px 20px);
+  font-size: 1em !important;
+  font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace !important;
+  font-weight: 400 !important;
+  line-height: 1.1 !important;
 }
 
+section code,
+pre code {
+  font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace !important;
+  font-size: 1em !important;
+  color: #555353 !important;
+  background: none !important;
+  border: none !important;
+  font-weight: 400 !important;
+  line-height: 1.1 !important;
+}
 
-code {
-  font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace;
-  font-size: 1em;
-  color: #ffe7c2;
-  background: none;
-  border: none;
-  letter-spacing: 0.01em;
+/* Grayscale syntax highlighting - simple and clean */
+pre *,
+section pre *,
+pre code *,
+section pre code * {
+  color: #d4d4d4 !important; /* All code elements same light gray */
+}
+
+/* Slightly darker for comments only */
+pre .hljs-comment,
+section pre .hljs-comment,
+pre .token.comment,
+section pre .token.comment {
+  color: #999999 !important; /* Darker gray for comments */
+}
+
+/* Force override any colored elements */
+pre *[style],
+section pre *[style] {
+  color: #d4d4d4 !important;
 }
 
 /* Inline code */

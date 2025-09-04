@@ -28,3 +28,18 @@ In this course, we'll explore the fundamental components needed to build a tradi
 - **Position Tracking** - Monitoring positions and portfolio state
 
 Each component is essential for building a robust and reliable trading infrastructure.
+
+---
+
+# Getting the Code
+
+The complete source code for this course is available on GitHub:
+
+https://github.com/coder-trader/comp_of_ts
+
+**Setup Instructions:**
+- Clone the repository
+- Navigate to the project directory
+- Install dependencies: `uv sync`
+
+Follow along with the code examples as we explore each component!

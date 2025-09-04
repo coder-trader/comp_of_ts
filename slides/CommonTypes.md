@@ -25,7 +25,10 @@ class OrderSide(Enum):
 class OrderType(Enum):
     MARKET = "Market"
     LIMIT = "Limit"
+```
+---
 
+```python
 class OrderStatus(Enum):
     NEW = "New"
     PARTIALLY_FILLED = "PartiallyFilled"
@@ -36,14 +39,19 @@ class OrderStatus(Enum):
 
 ---
 
-# Position & Market Data Types
+# Position
 
 ```python
 class PositionSide(Enum):
     LONG = "Buy"
     SHORT = "Sell" 
     NONE = "None"
+```
 
+---
+
+# Market Data Types
+```python
 @dataclass
 class OrderBookLevel:
     price: Decimal
@@ -98,8 +106,7 @@ class Position:
 
 ---
 
-# Trade & Balance Types
-
+# Trade
 ```python
 @dataclass
 class Trade:
@@ -111,7 +118,12 @@ class Trade:
     price: Decimal
     fee: Decimal
     timestamp: datetime.datetime
+```
 
+---
+
+# Balance Types
+```python
 @dataclass
 class Balance:
     coin: str
@@ -132,6 +144,8 @@ class AccountInfo:
     total_wallet_balance: Decimal
     total_unrealized_pnl: Decimal
 ```
+
+---
 
 **Key Benefits:**
 - Type safety with dataclasses and enums
